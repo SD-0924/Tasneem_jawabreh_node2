@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/styles.css" />
+    <title>Create New File</title>
+  </head>
+  <body>
+    <% if (error) { %>
+    <script>
+      alert("<%= error %>");
+    </script>
+    <% } %>
+
+    <div class="center-box">
+      <div class="upper-section">
+        <h2>Create New File</h2>
+      </div>
+      <div class="lower-section">
+        <form action="/create" method="POST">
+          <input type="text" name="filename" placeholder="File Name" required />
+          <textarea
+            name="content"
+            rows="5"
+            placeholder="File Content"
+            required
+          ></textarea>
+          <button type="submit">Create File</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/styles.css" />
+    <title>File List</title>
+  </head>
+  <body>
+    <% if (error) { %>
+        <script>
+            alert("<%= error %>");
+        </script>
+    <% } %>
+    <div class="center-box">
+      <div class="upper-section">
+        <h2>File List</h2>
+        <a href="/create">Create New File</a>
+        <div><a href="/uploadfile">Upload a New File</a></div>
+      </div>
+      <div class="lower-section">
+        <ul class="file-list">
+          <% files.forEach(function(file) { %>
+          <li><a href="/files/<%= file %>"><%= file %></a></li>
+          <% }); %>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

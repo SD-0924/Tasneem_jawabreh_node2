@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/styles.css" />
+    <title>File Content</title>
+  </head>
+  <body>
+    <% if (error) { %>
+    <script>
+      alert("<%= error %>");
+    </script>
+    <% } %>
+    <div class="center-box">
+      <div class="upper-section">
+        <h2><%= filename %></h2>
+      </div>
+      <div class="lower-section">
+        <p><%= content %></p>
+        <form action="/rename" method="POST" style="margin-top: 20px">
+          <input type="hidden" name="oldFilename" value="<%= filename %>" />
+          <input
+            type="text"
+            name="newFilename"
+            placeholder="New File Name"
+            required
+          />
+          <button type="submit">Rename File</button>
+        </form>
+        <form action="/delete" method="POST" style="margin-top: 10px">
+          <input type="hidden" name="filename" value="<%= filename %>" />
+          <button type="submit">Delete File</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
